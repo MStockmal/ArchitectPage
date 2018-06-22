@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<link href="https://fonts.googleapis.com/css?family=Monsieur+La+Doulaise" rel="stylesheet">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+
+		<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<!------ Include the above in your HEAD tag ---------->
+
+		<style>
+			@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+			#team {
+				background: #FAF5EB !important;
+			}
+
+			.btn-primary:hover,
+			.btn-primary:focus {
+				background-color: #632A33;
+				border-color: #632A33;
+				box-shadow: none;
+				outline: none;
+			}
+
+			.btn-primary {
+				color: #fff;
+				background-color: #632A33;
+				border-color: #632A33;
+			}
+
+			section {
+				padding: 60px 0;
+			}
+
+			section .section-title {
+				text-align: center;
+				color: #632A33;
+				margin-bottom: 50px;
+				text-transform: uppercase;
+			}
+
+			#team .card {
+				border: none;
+				background: #ffffff;
+			}
+
+			.image-flip:hover .backside,
+			.image-flip.hover .backside {
+				-webkit-transform: rotateY(0deg);
+				-moz-transform: rotateY(0deg);
+				-o-transform: rotateY(0deg);
+				-ms-transform: rotateY(0deg);
+				transform: rotateY(0deg);
+				border-radius: .25rem;
+			}
+
+			.image-flip:hover .frontside,
+			.image-flip.hover .frontside {
+				-webkit-transform: rotateY(180deg);
+				-moz-transform: rotateY(180deg);
+				-o-transform: rotateY(180deg);
+				transform: rotateY(180deg);
+			}
+
+			.mainflip {
+				-webkit-transition: 1s;
+				-webkit-transform-style: preserve-3d;
+				-ms-transition: 1s;
+				-moz-transition: 1s;
+				-moz-transform: perspective(1000px);
+				-moz-transform-style: preserve-3d;
+				-ms-transform-style: preserve-3d;
+				transition: 1s;
+				transform-style: preserve-3d;
+				position: relative;
+			}
+
+			.frontside {
+				position: relative;
+				-webkit-transform: rotateY(0deg);
+				-ms-transform: rotateY(0deg);
+				z-index: 2;
+				margin-bottom: 30px;
+			}
+
+			.backside {
+				position: absolute;
+				top: 0;
+				left: 0;
+				background: white;
+				-webkit-transform: rotateY(-180deg);
+				-moz-transform: rotateY(-180deg);
+				-o-transform: rotateY(-180deg);
+				-ms-transform: rotateY(-180deg);
+				transform: rotateY(-180deg);
+				-webkit-box-shadow: 5px 7px 9px -4px rgb(158, 158, 158);
+				-moz-box-shadow: 5px 7px 9px -4px rgb(158, 158, 158);
+				box-shadow: 5px 7px 9px -4px rgb(158, 158, 158);
+			}
+
+			.frontside,
+			.backside {
+				-webkit-backface-visibility: hidden;
+				-moz-backface-visibility: hidden;
+				-ms-backface-visibility: hidden;
+				backface-visibility: hidden;
+				-webkit-transition: 1s;
+				-webkit-transform-style: preserve-3d;
+				-moz-transition: 1s;
+				-moz-transform-style: preserve-3d;
+				-o-transition: 1s;
+				-o-transform-style: preserve-3d;
+				-ms-transition: 1s;
+				-ms-transform-style: preserve-3d;
+				transition: 1s;
+				transform-style: preserve-3d;
+			}
+
+			.frontside .card,
+			.backside .card {
+				min-height: 350px;
+				max-height: 350px;
+			}
+
+			.backside .card a {
+				font-size: 18px;
+				color: #632A33 !important;
+			}
+
+			.frontside .card .card-title,
+			.backside .card .card-title {
+				color: #632A33 !important;
+			}
+
+			.frontside .card .card-body img {
+				width: 120px;
+				height: 120px;
+				border-radius: 50%;
+			}
+			.cursive {
+				font-family: 'Monsieur La Doulaise', cursive;
+				color: #5C2432;
+				text-transform: none;
+				font-size: 4em;  
+				text-shadow: -6px 5px 2px rgba(255, 255, 255, 0.48);
+			}
+			.card-text {
+				text-align: left;
+				overflow: auto;
+				margin: 1em;
+				max-height: 250px;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<!-- Team -->
+		<section id="team" class="pb-5">
+			<div class="container">
+				<h5 class="section-title cursive" style="text-transform: none;">Our Architects</h5>
+				<div class="row">
+					<!-- Team member -->
+					<div class="col-xs-12 col-sm-6 col-md-4">
+						<div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+							<div class="mainflip">
+								<div class="frontside">
+									<div class="card">
+										<div class="card-body text-center">
+											<p><img class=" img-fluid" src="file:///Users/matthewstockmal/Downloads/images/RZook.jpg" alt="card image"></p>
+											<h4 class="card-title">R. Harold Zook</h4>
+											<p class="card-text">Zook studied at the Armour Institute (now I.I.T.) and apprenticed to Howard Van Doren Shaw. He opened his own office in Chicago in 1924, the same year he moved his young family to a small house of his own design at 327 S. Oak in Hinsdale...</p>
+											<a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+										</div>
+									</div>
+								</div>
+								<div class="backside">
+									<div class="card">
+										<div class="card-body text-center mt-4">
+											<h4 class="card-title">R. Harold Zook</h4>
+											<p class="card-text">Zook studied at the Armour Institute (now I.I.T.) and apprenticed to Howard Van Doren Shaw. He opened his own office in Chicago in 1924, the same year he moved his young family to a small house of his own design at 327 S. Oak in Hinsdale. Although Zook was busy during the 1920s, the Depression of the 1930s took its toll on his business. Zook was involved in the choosing of Edwin H. Clark, the architect for the Memorial Building and in 1932 was chairman of the Hinsdale Plan Commission. Ultimately, Zook built 31 houses and 6 commercial buildings in Hinsdale. He also designed the Art Deco Municipal Building in St. Charles City Hall and the Pickwick Theatre in Park Ridge. Most of his houses are exceptionally crafted with detailed woodwork and hardware, patterned brickwork, decorative leaded glass windows and unusually complex rooflines. Zook houses are still instantly recognizable.
+											</p>
+											<ul class="list-inline">
+												<li class="list-inline-item">
+													<a class="social-icon text-xs-center" target="_blank" href="#">
+														<i class="fas fa-home"></i>
+													</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- ./Team member -->
+					<!-- Team member -->
+					<div class="col-xs-12 col-sm-6 col-md-4">
+						<div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+							<div class="mainflip">
+								<div class="frontside">
+									<div class="card">
+										<div class="card-body text-center">
+											<p><img class=" img-fluid rounded-circle" src="file:///Users/matthewstockmal/Downloads/images/Barfield.jpeg" alt="card image"></p>
+											<h4 class="card-title">William G. Barfield</h4>
+											<p class="card-text ">Born in England, Barfield came to the United States in 1882 and established an architectural practice in Chicago, where he worked until his death in 1935. He was a long-time resident of Hinsdale, building his first house here in 1912 at 136 South Oak Street. </p>
+											<a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+										</div>
+									</div>
+								</div>
+								<div class="backside">
+									<div class="card">
+										<div class="card-body text-center mt-4">
+											<h4 class="card-title">William G. Barfield</h4>
+											<p class="card-text">Born in England, Barfield came to the United States in 1882 and established an architectural practice in Chicago, where he worked until his death in 1935. He was a long-time resident of Hinsdale, building his first house here in 1912 at 136 South Oak Street. He later moved to 112 North Lincoln Street and remained there for the rest of his life. The Hinsdale Theatre, with its beautiful cream-colored terra cotta ornament, is typical of the best commercial work of the 1920s. Unlike his contemporary, R. Harold Zook, Barfield was drawn to the simplicity of the Craftsman and Prairie styles for his house designs. The design of 441 East Third Street reflects his love of the Prairie Style's horizontality, simple stucco and wood wall surfaces and large expanses of window. · 138 North Grant Street (1921)
+											</p>
+											<ul class="list-inline">
+												<li class="list-inline-item">
+													<a class="social-icon text-xs-center" target="_blank" href="#">
+														<i class="fas fa-home"></i>
+													</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- ./Team member -->
+					<!-- Team member -->
+					<div class="col-xs-12 col-sm-6 col-md-4">
+						<div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+							<div class="mainflip">
+								<div class="frontside">
+									<div class="card">
+										<div class="card-body text-center">
+											<p><img class=" img-fluid rounded-circle" src="file:///Users/matthewstockmal/Downloads/images/beman.jpg" alt="card image"></p>
+											<h4 class="card-title">Solon S. Beman</h4>
+											<p class="card-text ">Beman practiced for over 40 years in the Chicago area, designing numerous Christian Science churches and houses in various historical revival styles. In his hometown of Winnetka he was responsible for the design of over 60 houses and several public buildings. </p>
+											<a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+										</div>
+									</div>
+								</div>
+								<div class="backside">
+									<div class="card">
+										<div class="card-body text-center mt-4">
+											<h4 class="card-title">Solon S. Beman </h4>
+											<p class="card-text">Beman practiced for over 40 years in the Chicago area, designing numerous Christian Science churches and houses in various historical revival styles. In his hometown of Winnetka he was responsible for the design of over 60 houses and several public buildings. He continued the highly successful practice of his father, famous Chicago architect S. S. Beman, particularly in his association with the Christian Science church. This Hinsdale example is a simple and straightforward Colonial Revival design that blends well with its residential neighborhood.
+											</p>
+											<ul class="list-inline">
+												<li class="list-inline-item">
+													<a class="social-icon text-xs-center" target="_blank" href="#">
+														<i class="fas fa-home"></i>
+													</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- Team member -->
+					<div class="col-xs-12 col-sm-6 col-md-4">
+						<div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+							<div class="mainflip">
+								<div class="frontside">
+									<div class="card">
+										<div class="card-body text-center">
+											<p><img class=" img-fluid rounded-circle" src="file:///Users/matthewstockmal/Downloads/images/clarke.jpg" alt="card image"></p>
+											<h4 class="card-title">Edwin H. Clark</h4>
+											<p class="card-text ">A graduate of Yale and native Chicagoan, Clark began work with William A. Otis in 1903 and was made a partner in 1908. He moved to Winnetka that same year. Although he worked primarily on North Shore houses...</p>
+											<a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+										</div>
+									</div>
+								</div>
+								<div class="backside">
+									<div class="card">
+										<div class="card-body text-center mt-4">
+											<h4 class="card-title">Edwin H. Clark</h4>
+											<p class="card-text">A graduate of Yale and native Chicagoan, Clark began work with William A. Otis in 1903 and was made a partner in 1908. He moved to Winnetka that same year. Although he worked primarily on North Shore houses, Clark also designed numerous larger commissions such as the Brookfield Zoo and Wilmette's Plaza del Lago. He also designed the fine Winnetka Village Hall. He remained a prominent and respected architect until his retirement in 1953. He won the commission for The Memorial Building in an open competition.
+											</p>
+											<ul class="list-inline">
+												<li class="list-inline-item">
+													<a class="social-icon text-xs-center" target="_blank" href="#">
+														<i class="fas fa-home"></i>
+													</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- ./Team member -->
+					<!-- Team member -->
+					<div class="col-xs-12 col-sm-6 col-md-4">
+						<div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+							<div class="mainflip">
+								<div class="frontside">
+									<div class="card">
+										<div class="card-body text-center">
+											<p><img class=" img-fluid" src="file:///Users/matthewstockmal/Downloads/images/drummond.jpeg.jpg" alt="card image"></p>
+											<h4 class="card-title">William Drummond</h4>
+											<p class="card-text">He was a Prairie School architect who joined Frank Lloyd Wright's studio in 1899, finally departing in 1909. Born in New Jersey, his family came to Chicago when he was ten. He attended classes in architecture at the University of Illinois while working as a carpenter....</p>
+											<a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+										</div>
+									</div>
+								</div>
+								<div class="backside">
+									<div class="card">
+										<div class="card-body text-center mt-4">
+											<h4 class="card-title">William Drummond</h4>
+											<p class="card-text">He was a Prairie School architect who joined Frank Lloyd Wright's studio in 1899, finally departing in 1909. Born in New Jersey, his family came to Chicago when he was ten. He attended classes in architecture at the University of Illinois while working as a carpenter. He became acquainted with Wright's work in Oak Park on one of his many long evening walks, applied for a position, and was hired within days. He also worked as a draftsman for Richard Schmidt and D. H. Burnham during the same time. From 1910 -1915 Drummond partnered with Louis Guenzel. After that he practiced alone, abandoning the Prairie style after World War I.
+											</p>
+											<ul class="list-inline">
+												<li class="list-inline-item">
+													<a class="social-icon text-xs-center" target="_blank" href="#">
+														<i class="fas fa-home"></i>
+													</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- ./Team member -->
+					<!-- Team member -->
+					<div class="col-xs-12 col-sm-6 col-md-4">
+						<div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+							<div class="mainflip">
+								<div class="frontside">
+									<div class="card">
+										<div class="card-body text-center">
+											<p><img class=" img-fluid" src="file:///Users/matthewstockmal/Downloads/images/George.jpg" alt="card image"></p>
+											<h4 class="card-title">George Grant Elmslie</h4>
+											<p class="card-text">He immigrated to the United States from Scotland with his parents when he was a child. He began his apprenticeship in the office of William LeBaron Jenney, and in 1887 joined Frank Lloyd Wright and George Maher in the office Jospeh Lyman Silsbee....</p>
+											<a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+										</div>
+									</div>
+								</div>
+								<div class="backside">
+									<div class="card">
+										<div class="card-body text-center mt-4">
+											<h4 class="card-title">George Grant Elmslie</h4>
+											<p class="card-text">He immigrated to the United States from Scotland with his parents when he was a child. He began his apprenticeship in the office of William LeBaron Jenney, and in 1887 joined Frank Lloyd Wright and George Maher in the office Jospeh Lyman Silsbee. For twenty years he worked with Dankmar Adler and Louis Sullivan, were he was Sullivan's chief draftsman and ornamental designer. He detailed the ornamentation for the Schlesinger and Mayer (currently known as Carson Pirie Scott) Department store in Chicago. In 1909 he went to work with William Gray Purcell and their partnership became the most active and productive within the Prairie School.
+											</p>
+											<ul class="list-inline">
+												<li class="list-inline-item">
+													<a class="social-icon text-xs-center" target="_blank" href="#">
+														<i class="fas fa-home"></i>
+													</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- ./Team member -->
+					<!-- Team member -->
+					<div class="col-xs-12 col-sm-6 col-md-4">
+						<div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+							<div class="mainflip">
+								<div class="frontside">
+									<div class="card">
+										<div class="card-body text-center">
+											<p><img class=" img-fluid" src="file:///Users/matthewstockmal/Downloads/images/Mundy.jpg" alt="card image"></p>
+											<h4 class="card-title">Jenney &amp; Mundie</h4>
+											<p class="card-text">William LeBaron Jenney began his career as an engineer in the Civil War. He arrived in Chicago in 1867 and worked with Frederick Law Olmsted and Calvert Vaux to design the picturesque suburb of Riverside...</p>
+											<a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+										</div>
+									</div>
+								</div>
+								<div class="backside">
+									<div class="card">
+										<div class="card-body text-center mt-4">
+											<h4 class="card-title">Jenney &amp; Mundie</h4>
+											<p class="card-text">William LeBaron Jenney began his career as an engineer in the Civil War. He arrived in Chicago in 1867 and worked with Frederick Law Olmsted and Calvert Vaux to design the picturesque suburb of Riverside. Jenney also helped plan Chicago's boulevard and park system. He is most well known, however, for his work in developing the steel-framed skyscraper and for training a generation of Chicago architects in the 1870s and 1880s. William Mundie, the son and grandson of Canadian architects, joined Jenney in 1884 and became his partner in 1891. The house at 134 North Lincoln Street, locally known as "the terra cotta house", was built for the owner of the Northwestern Terra Cotta Company.
+											</p>
+											<ul class="list-inline">
+												<li class="list-inline-item">
+													<a class="social-icon text-xs-center" target="_blank" href="#">
+														<i class="fas fa-home"></i>
+													</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- ./Team member -->
+					<!-- Team member -->
+					<div class="col-xs-12 col-sm-6 col-md-4">
+						<div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+							<div class="mainflip">
+								<div class="frontside">
+									<div class="card">
+										<div class="card-body text-center">
+											<p><img class=" img-fluid" src="file:///Users/matthewstockmal/Downloads/images/GWMaher.jpg" alt="card image"></p>
+											<h4 class="card-title">George W. Maher</h4>
+											<p class="card-text">Maher began his architectural education in 1878 with the prominent Chicago architects Augustus Bauer and Henry Hill. In 1887, he joined the office of Shingle style architect Joseph L. Silsbee as a draftsman, where he worked with fellow draftsman Frank Lloyd Wright...</p>
+											<a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+										</div>
+									</div>
+								</div>
+								<div class="backside">
+									<div class="card">
+										<div class="card-body text-center mt-4">
+											<h4 class="card-title">George W. Maher</h4>
+											<p class="card-text">Maher began his architectural education in 1878 with the prominent Chicago architects Augustus Bauer and Henry Hill. In 1887, he joined the office of Shingle style architect Joseph L. Silsbee as a draftsman, where he worked with fellow draftsman Frank Lloyd Wright. During the 1890s he worked in a variety of styles, his Shingle and Queen Anne projects were widely reviewed in the Inland Architect journal during this time period. By the late 1890s his work began to reflect characteristics of the Prairie style and he is considered on the pioneer Prairie style architects along with Frank Lloyd Wright, Purcell & Elmslie, and Walter Burley Griffin. He developed the campus plan for Northwestern University in 1907 and designed Swift Hall and Patten Gymnasium on that campus. After World War I, Maher became a vocal proponent of community planning and prepared development plans for Glencoe and Kenilworth.
+											</p>
+											<ul class="list-inline">
+												<li class="list-inline-item">
+													<a class="social-icon text-xs-center" target="_blank" href="#">
+														<i class="fas fa-home"></i>
+													</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- ./Team member -->
+					<!-- Team member -->
+					<div class="col-xs-12 col-sm-6 col-md-4">
+						<div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+							<div class="mainflip">
+								<div class="frontside">
+									<div class="card">
+										<div class="card-body text-center">
+											<p><img class=" img-fluid" src="file:///Users/matthewstockmal/Downloads/images/Pashley.jpg" alt="card image"></p>
+											<h4 class="card-title">Alfred F. Pashley</h4>
+											<p class="card-text">Born in Wisconsin and educated in the Chicago Public Schools, Pashley began practicing architecture in Chicago in 1885 and was a fellow of the American Institute of Architects and member of the Illinois..</p>
+											<a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+										</div>
+									</div>
+								</div>
+								<div class="backside">
+									<div class="card">
+										<div class="card-body text-center mt-4">
+											<h4 class="card-title">Alfred F. Pashley</h4>
+											<p class="card-text">Born in Wisconsin and educated in the Chicago Public Schools, Pashley began practicing architecture in Chicago in 1885 and was a fellow of the American Institute of Architects and member of the Illinois Chapter of the American Institute of Architecture. In 1880, Pashley designed the Cardinal's residence located at 1555 North State Parkway, in the Gold Coast of Chicago with a picturesque roofline of many chimneys, turrets, dormers and gables in the Queen Anne style.
+											</p>
+											<ul class="list-inline">
+												<li class="list-inline-item">
+													<a class="social-icon text-xs-center" target="_blank" href="#">
+														<i class="fas fa-home"></i>
+													</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- ./Team member -->
+					<!-- Team member -->
+					<div class="col-xs-12 col-sm-6 col-md-4">
+						<div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+							<div class="mainflip">
+								<div class="frontside">
+									<div class="card">
+										<div class="card-body text-center">
+											<p><img class=" img-fluid" src="file:///Users/matthewstockmal/Downloads/images/fisher.jpg" alt="card image"></p>
+											<h4 class="card-title">Patton &amp; Fisher</h4>
+											<p class="card-text">Normand S. Patton was educated at M.I.T. and established his practice in Chicago in 1874. Although he and Fisher were partners from 1885-1901, very little is known about Fisher. Patton designed such notable buildings as the Armour Institute...</p>
+											<a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+										</div>
+									</div>
+								</div>
+								<div class="backside">
+									<div class="card">
+										<div class="card-body text-center mt-4">
+											<h4 class="card-title">Patton &amp; Fisher</h4>
+											<p class="card-text">Normand S. Patton was educated at M.I.T. and established his practice in Chicago in 1874. Although he and Fisher were partners from 1885-1901, very little is known about Fisher. Patton designed such notable buildings as the Armour Institute (now part of I.I.T.) and the Chicago Academy of Science as well as numerous college buildings and campus plans, including work at Millikin, Purdue and Carlton College. He also designed over 100 Carnegie libraries. He lived in Oak Park, where he designed the Scoville Institute and the First Congregational Church. He became a Fellow of the American Institute of Architects in 1889 and served on its board for two terms. He was held in great respect by his peers for his thoughtful designs and ingenious plans.
+											</p>
+											<ul class="list-inline">
+												<li class="list-inline-item">
+													<a class="social-icon text-xs-center" target="_blank" href="#">
+														<i class="fas fa-home"></i>
+													</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- ./Team member -->
+						<!-- Team member -->
+					<div class="col-xs-12 col-sm-6 col-md-4">
+						<div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+							<div class="mainflip">
+								<div class="frontside">
+									<div class="card">
+										<div class="card-body text-center">
+											<p><img class=" img-fluid" src="file:///Users/matthewstockmal/Downloads/images/roberts.jpg" alt="card image"></p>
+											<h4 class="card-title">Eben Ezra "E.E." Roberts</h4>
+											<p class="card-text">Roberts first worked for S.S. Beman (Sr.) in Pullman as a site superintendent starting in 1889. He set up his own practice in Oak Park in 1893, where he designed nearly 200 houses. Although he worked in...</p>
+											<a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+										</div>
+									</div>
+								</div>
+								<div class="backside">
+									<div class="card">
+										<div class="card-body text-center mt-4">
+											<h4 class="card-title">Eben Ezra "E.E." Roberts</h4>
+											<p class="card-text">Roberts first worked for S.S. Beman (Sr.) in Pullman as a site superintendent starting in 1889. He set up his own practice in Oak Park in 1893, where he designed nearly 200 houses. Although he worked in a variety of styles, his work favored the Prairie style of his Oak Park contemporary Frank Lloyd Wright. The house at 231 East Third Street was designed for A. W. True in a bold Prairie style with deep eaves and bands of windows set in dark wood trim. In 1912 Roberts moved his office to Chicago and began to concentrate more on commercial designs, including several important buildings in Oak Park. He retired in 1926, leaving his practice to his son Elmer.
+											</p>
+											<ul class="list-inline">
+												<li class="list-inline-item">
+													<a class="social-icon text-xs-center" target="_blank" href="#">
+														<i class="fas fa-home"></i>
+													</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- ./Team member -->
+					<!-- Team member -->
+					<div class="col-xs-12 col-sm-6 col-md-4">
+						<div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+							<div class="mainflip">
+								<div class="frontside">
+									<div class="card">
+										<div class="card-body text-center">
+											<p><img class=" img-fluid" src="file:///Users/matthewstockmal/Downloads/images/Coolidge.jpg" alt="card image"></p>
+											<h4 class="card-title">Shepley, Rutan &amp; Coolidge</h4>
+											<p class="card-text">This well-known Boston architectural firm established a Chicago office in 1888 and played an important role in the master plan and designs for the University of Chicago, the Art Institute and the Chicago Public Library...</p>
+											<a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+										</div>
+									</div>
+								</div>
+								<div class="backside">
+									<div class="card">
+										<div class="card-body text-center mt-4">
+											<h4 class="card-title">Shepley, Rutan &amp; Coolidge</h4>
+											<p class="card-text">This well-known Boston architectural firm established a Chicago office in 1888 and played an important role in the master plan and designs for the University of Chicago, the Art Institute and the Chicago Public Library (now the Chicago Cultural Center). Although they inherited the practice of H. H. Richardson in 1886, the firm turned away from Richardson's Romanesque Revival to embrace the Renaissance Revival made famous by the 1893 Columbian Exposition. The house at 244 East First Street, with its Classical details and symmetry, is a skillful example of their work. The carriage house on Elm Street was moved and converted to residential use in 1955.
+											</p>
+											<ul class="list-inline">
+												<li class="list-inline-item">
+													<a class="social-icon text-xs-center" target="_blank" href="#">
+														<i class="fas fa-home"></i>
+													</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- ./Team member -->
+					<!-- Team member -->
+					<div class="col-xs-12 col-sm-6 col-md-4">
+						<div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+							<div class="mainflip">
+								<div class="frontside">
+									<div class="card">
+										<div class="card-body text-center">
+											<p><img class=" img-fluid" src="file:///Users/matthewstockmal/Downloads/images/Duke.jpeg.jpg" alt="card image"></p>
+											<h4 class="card-title">Philip Duke West</h4>
+											<p class="card-text">Graduating from the University of Michigan in 1929, West weathered the Depression as a designer and draftsman at important Chicago architectural firms, including Holabid &amp; Root and Schmidt, Garden &amp; Erickson....</p>
+											<a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+										</div>
+									</div>
+								</div>
+								<div class="backside">
+									<div class="card">
+										<div class="card-body text-center mt-4">
+											<h4 class="card-title">Philip Duke West</h4>
+											<p class="card-text">Graduating from the University of Michigan in 1929, West weathered the Depression as a designer and draftsman at important Chicago architectural firms, including Holabid &amp; Root and Schmidt, Garden &amp; Erickson. In 1947 he set up his own practice in Hinsdale, where he had begun designing buildings in the 1930s. He was responsible for numerous public buildings in Hinsdale (including the present Police and Fire Station on Symonds Drive) and served on the Plan Commission starting in 1950. The best of his work was executed in the International Style, with ribbons of metal-framed windows set in simple limestone bands and red brickwork.
+											</p>
+											<ul class="list-inline">
+												<li class="list-inline-item">
+													<a class="social-icon text-xs-center" target="_blank" href="#">
+														<i class="fas fa-home"></i>
+													</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- ./Team member -->
+					
+				</div>
+			</div>
+		</section>
+		<!-- Team -->
+	</body>
+</html>
+
